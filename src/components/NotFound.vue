@@ -1,16 +1,17 @@
 <template>
   <div class="page">
-      <router-link to="/money">记账</router-link>
-      |
-      <router-link to="/labels">标签</router-link>
-      |
-      <router-link to="/statistics">统计</router-link>
+    <div>
+      当前页面不存在，你输入的网址不对
+    </div>
+    <div>
+      <router-link to="/">返回首页</router-link>
+    </div>
   </div>
 </template>
 
 <script type="text/javascript">
 export default {
-  name: 'nav',
+  name: 'notFound',
   data () {
     return {
 

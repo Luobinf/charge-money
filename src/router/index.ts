@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Money from '@/views/Money.vue';
 import Labels from '@/views/Labels.vue'
 import Statistics from '@/views/Statistics.vue'
+import NotFound from '@/components/NotFound.vue'
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,10 @@ const routes = [
   {
     path: '/statistics',
     component: Statistics
+  },
+  {
+    path: '*', //除了上述几个路由以外的任意路由都将返回404页面
+    component: NotFound
   }
   // {
   //     path: '/about',

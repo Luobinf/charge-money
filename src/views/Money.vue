@@ -1,6 +1,7 @@
 <template>
   <div class="page">
     money.vue
+    <Nav></Nav>
   </div>
 </template>
 
@@ -13,7 +14,7 @@ export default {
     }
   },
   components: {
-    
+
   }
 }
 </script>
