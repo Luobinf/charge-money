@@ -1,19 +1,19 @@
 <template>
   <div class="page">
-    money.vue
+
   </div>
 </template>
 
 <script type="text/javascript">
 export default {
-  name: 'money',
+  name: 'nav',
   data () {
     return {
 
     }
   },
   components: {
-    
+
   }
 }
 </script>
