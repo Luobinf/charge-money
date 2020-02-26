@@ -1,6 +1,8 @@
 <template>
-  <div class="page">
-    labels.vue
+  <div class="nav-wrapper">
+    <div class="content">
+      labels
+    </div>
     <Nav></Nav>
   </div>
 </template>
@@ -20,4 +22,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border: 1px solid red;
+    .content {
+      flex-grow: 1;
+      overflow: auto;
+      border: 1px solid skyblue;
+    }
+  }
 </style>
