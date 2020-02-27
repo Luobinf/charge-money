@@ -1,13 +1,14 @@
 <template>
-  <div class="nav-wrapper">
-    <div class="content">
-      money.vue
-    </div>
-    <Nav></Nav>
+  <div>
+    <Layout>
+      money
+      <Icon name="money"></Icon>
+    </Layout>
   </div>
 </template>
 
-<script type="text/javascript">
+<script lang="ts">
+
 export default {
   name: 'money',
   data () {
@@ -22,15 +23,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .nav-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    border: 1px solid red;
-    .content {
-      flex-grow: 1;
-      overflow: auto;
-      border: 1px solid skyblue;
-    }
-  }
+
 </style>
