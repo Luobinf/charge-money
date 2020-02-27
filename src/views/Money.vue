@@ -1,7 +1,9 @@
 <template>
   <div>
     <Layout>
-      money
+      <p>
+        money
+      </p>
     </Layout>
   </div>
 </template>
@@ -22,5 +24,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+@import "~@/assets/styles/helper.scss";
+p {
+  color: $red;
+}
 </style>
