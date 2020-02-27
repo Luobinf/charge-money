@@ -30,12 +30,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "~@/assets/styles/helper.scss";
     nav {
+        @extend %outerShadow;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 0 3px rgba(0,0,0,0.3);
         font-size: 12px;
         .item {
             width: 33.333333%;

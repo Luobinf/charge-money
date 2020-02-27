@@ -4,3 +4,19 @@ $font-kai:Baskerville, Georgia, "Liberation Serif", "Kaiti SC", STKaiti, "AR PL 
 $font-song:Georgia, "Nimbus Roman No9 L", "Songti SC", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
 
 $color-highlight: blue;
+
+//placeholder %xxx的位置将选择器复制过来
+%clearfix {
+  &::after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+}
+%outerShadow {
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+%innerShadow {
+  box-shadow: inset 0 -3px 3px -3px fade_out(black,0.7),
+  inset 0 3px 3px -3px fade_out(black,0.7);
+}
