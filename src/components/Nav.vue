@@ -50,7 +50,9 @@ export default {
             }
             &.is-active {
                 background-color: skyblue;
-                color: blue;
+                .icon {
+                    fill: blue;
+                }
             }
         }
     }
