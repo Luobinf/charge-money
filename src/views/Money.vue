@@ -2,7 +2,6 @@
   <div>
     <Layout>
       money
-      <Icon name="money"></Icon>
     </Layout>
   </div>
 </template>

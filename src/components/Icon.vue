@@ -20,8 +20,8 @@ export default {
 
 <style scoped lang="scss">
   .icon {
-    width: 2em;
-    height: 2em;
+    width: 1em;
+    height: 1em;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;

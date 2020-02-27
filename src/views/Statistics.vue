@@ -2,7 +2,6 @@
   <div>
     <Layout>
       statistics
-      <Icon name="statistics"></Icon>
     </Layout>
   </div>
 </template>

@@ -2,7 +2,6 @@
   <div>
     <Layout>
       Labels
-      <Icon name="label"></Icon>
     </Layout>
   </div>
 </template>
