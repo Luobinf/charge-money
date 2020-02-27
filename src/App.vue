@@ -5,19 +5,11 @@
 </template>
 
 <style lang="scss">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-ul,li {
-  list-style: none;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
+@import "~@/assets/styles/helper.scss";
+@import "~@/assets/styles/reset.scss";
 body {
   line-height: 1.5;
+  color: #333333;
+  font-family: $font-hei;
 }
 </style>
