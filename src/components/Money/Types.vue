@@ -27,25 +27,23 @@
 //   }
 // }
 import Vue from 'vue';
-import {Component} from 'vue-property-decorator';
+import {Component, Prop} from 'vue-property-decorator';
 
-@Component({
-  props: {
-    message: {
-      type: String
-    }
-  }
-})
+@Component
 export default class Types extends Vue {
-  type = '-' ;// type 只能是‘-’表示支出，‘+’号表示收入
-  hello:string = this.message;
+  type:string = '-' ;// type 只能是‘-’表示支出，‘+’号表示收入
+  @Prop(Number) xxx: number | undefined; //任何时候都需要检查xxx有可能是undefined的时候
+  //Number是Vue加的，后面的undefined用于给xxx一个初始值
   selectType(type:string) {
       if(type !== '-' && type !== '+') {
         throw new Error('type is unknown');
       }
       this.type = type;
-    }
   }
+  mounted(): void {
+
+  }
+}
 </script>
 
 <style scoped lang="scss">
