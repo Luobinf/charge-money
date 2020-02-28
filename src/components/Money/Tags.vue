@@ -1,6 +1,6 @@
 <template>
   <div class="tags">
-    <ul class="current">
+    <ul class="current" ref="current">
       <li v-for="tag in dataSource" :key="tag" @click="toggle(tag)"
         :class="{'is-active': selectedTags.indexOf(tag)>=0}"
       >
@@ -8,7 +8,7 @@
       </li>
     </ul>
     <div class="new">
-      <button>新增标签</button>
+      <button @click="createTag">新增标签</button>
     </div>
   </div>
 </template>
@@ -30,6 +30,16 @@ export default class Tags extends Vue{
       this.selectedTags.push(tag);
     }
   }
+  createTag() {
+    let tagName = window.prompt('请输入标签名');
+    if(tagName === '') {
+      window.alert('标签名不能为空');
+    } else {
+      if(this.dataSource) {
+        this.$emit('update:dataSource',tagName);
+      }
+    }
+  }
 }
 </script>
 
@@ -49,7 +59,7 @@ export default class Tags extends Vue{
         margin-right: 12px;
         margin-bottom: 10px;
         &.is-active {
-          background-color: #333333;
+          background-color: darken(#D9D9D9,50%);
           color: white;
         }
       }
