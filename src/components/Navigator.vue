@@ -17,7 +17,7 @@
 
 <script lang="ts">
 export default {
-  name: 'nav',
+  name: 'Navigator',
   data () {
     return {
 
