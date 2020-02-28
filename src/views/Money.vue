@@ -1,33 +1,28 @@
 <template>
   <div>
     <Layout class-prefix="layout">
-      <Tags></Tags>
+      <Tags :data-source="tags"></Tags>
       <Notes></Notes>
-      <Types :xxx="2020"></Types>
+      <Types></Types>
       <NumberPad></NumberPad>
     </Layout>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Tags from '@/components/Money/Tags.vue'
 import Notes from '@/components/Money/Notes.vue'
 import Types from '@/components/Money/Types.vue'
 import NumberPad from '@/components/Money/NumberPad.vue'
 
 export default {
-  name: 'money',
+  name: 'Money',
   data () {
     return {
-
+      tags: ['衣','食','住','行','彩票']
     }
   },
-  components: {
-    Tags,
-    Notes,
-    Types,
-    NumberPad
-  }
+  components: {Tags, Notes, Types, NumberPad}
 }
 </script>
 

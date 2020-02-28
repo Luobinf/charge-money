@@ -1,20 +1,11 @@
 <template>
   <div class="tags">
     <ul class="current">
-      <li>衣</li>
-      <li>食</li>
-      <li>住</li>
-      <li>行</li>
-      <li>衣</li>
-      <li>食</li>
-      <li>住</li>
-      <li>行</li>
-      <li>衣</li>
-      <li>食</li>
-      <li>住</li>
-      <li>行</li>
-      <li>衣</li>
-      <li>食</li>
+      <li v-for="tag in dataSource" :key="tag" @click="toggle(tag)"
+        :class="{'is-active': selectedTags.indexOf(tag)>=0}"
+      >
+        {{tag}}
+      </li>
     </ul>
     <div class="new">
       <button>新增标签</button>
@@ -22,16 +13,22 @@
   </div>
 </template>
 
-<script class="ts">
-export default {
-  name: 'tags',
-  data () {
-    return {
+<script lang="ts">
+import Vue from 'vue';
+import {Component,Prop} from 'vue-property-decorator';
 
+@Component
+export default class Tags extends Vue{
+  @Prop(Array) dataSource: string[] | undefined;
+  selectedTags: string [] = [];
+
+  toggle(tag: string) :void {
+    const index = this.selectedTags.indexOf(tag);
+    if(index >= 0) {
+      this.selectedTags.splice(index,1);
+    } else {
+      this.selectedTags.push(tag);
     }
-  },
-  components: {
-
   }
 }
 </script>
@@ -51,6 +48,10 @@ export default {
         padding: 0 16px;
         margin-right: 12px;
         margin-bottom: 10px;
+        &.is-active {
+          background-color: #333333;
+          color: white;
+        }
       }
     }
     .new {
