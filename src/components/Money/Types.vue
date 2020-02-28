@@ -29,9 +29,16 @@
 import Vue from 'vue';
 import {Component} from 'vue-property-decorator';
 
-@Component
+@Component({
+  props: {
+    message: {
+      type: String
+    }
+  }
+})
 export default class Types extends Vue {
   type = '-' ;// type 只能是‘-’表示支出，‘+’号表示收入
+  hello:string = this.message;
   selectType(type:string) {
       if(type !== '-' && type !== '+') {
         throw new Error('type is unknown');

@@ -3,7 +3,7 @@
     <Layout class-prefix="layout">
       <Tags></Tags>
       <Notes></Notes>
-      <Types></Types>
+      <Types message="2020"></Types>
       <NumberPad></NumberPad>
     </Layout>
   </div>
