@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{value}}
     <label class="notes">
       <span class="name">备注</span>
       <input type="text" placeholder="请输入备注"
@@ -12,7 +11,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {Component} from 'vue-property-decorator';
+import {Component, Watch} from 'vue-property-decorator';
 
 @Component
 export default class Notes extends Vue{
@@ -20,6 +19,10 @@ export default class Notes extends Vue{
   onInput(event:KeyboardEvent) {
     const input = event.target as HTMLInputElement;
     this.value = input.value;
+  }
+  @Watch('value')
+  onValueChanged(newVal: string) {
+    this.$emit('update:value',newVal);
   }
 }
 </script>
