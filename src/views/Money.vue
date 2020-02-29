@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{recordList}}
     <Layout class-prefix="layout">
       <Tags :data-source="tags" @update:dataSource="updateDataSource"
         @update:value="onUpdateTags"
@@ -20,14 +19,9 @@ import Tags from '@/components/Money/Tags.vue';
 import Notes from '@/components/Money/Notes.vue';
 import Types from '@/components/Money/Types.vue';
 import NumberPad from '@/components/Money/NumberPad.vue';
+import model from '@/model.ts';
 
-type Record = {
-  tags: string[],
-  notes: string,
-  type: string,
-  amount: number,
-  createAt?: Date
-}
+const recordList = model.getData();
 
 @Component({
   components: {
@@ -36,13 +30,14 @@ type Record = {
 })
 export default class Money extends Vue{
   tags: string [] = ['衣','食','住','行','彩票','HELLO','LL','PPP','PP','VUE.JS'];
-  recordList: Record [] = JSON.parse(window.localStorage.getItem('recordList') || '[]');
-  record: Record = {
+  recordList: RecordItem [] = recordList;
+  record: RecordItem = {
     tags: [],
     notes: '',
     type: '-',
     amount: 0
   };
+
   updateDataSource(tagname: string) {
     if(this.tags.indexOf(tagname) >= 0) {
       window.alert('标签名已经存在,不能重复添加！');
@@ -50,20 +45,24 @@ export default class Money extends Vue{
       this.tags.push(tagname);
     }
   }
+
   onUpdateNotes(value: string) {
     this.record.notes = value;
   }
+
   onUpdateTags(value:string []) {
     this.record.tags = value;
   }
+
   saveRecord() {
-    let deepCloneRecord: Record = JSON.parse(JSON.stringify(this.record));
+    let deepCloneRecord: RecordItem = JSON.parse(JSON.stringify(this.record));
     deepCloneRecord.createAt = new Date();
     this.recordList.push(deepCloneRecord);
   }
+
   @Watch('recordList')
   onRecordListChanged() {
-    window.localStorage.setItem('recordList',JSON.stringify(this.recordList));
+    model.saveData(this.recordList);
   }
 }
 </script>
