@@ -12,5 +12,6 @@ body {
   color: #333333;
   font-family: $font-hei;
   font-size: 16px;
+  background-color: #f5f5f5;
 }
 </style>

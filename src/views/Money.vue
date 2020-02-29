@@ -19,9 +19,11 @@ import Tags from '@/components/Money/Tags.vue';
 import Notes from '@/components/Money/Notes.vue';
 import Types from '@/components/Money/Types.vue';
 import NumberPad from '@/components/Money/NumberPad.vue';
-import model from '@/model.ts';
+import recordListModel from '@/models/recordListModel.ts';
+import tagListModel from '@/models/tagListModel.ts';
 
-const recordList = model.getData();
+const recordList = recordListModel.getData();
+const tagList = tagListModel.getData();
 
 @Component({
   components: {
@@ -29,7 +31,7 @@ const recordList = model.getData();
   }
 })
 export default class Money extends Vue{
-  tags: string [] = ['衣','食','住','行','彩票','HELLO','LL','PPP','PP','VUE.JS'];
+  tags = tagList;
   recordList: RecordItem [] = recordList;
   record: RecordItem = {
     tags: [],
@@ -62,7 +64,7 @@ export default class Money extends Vue{
 
   @Watch('recordList')
   onRecordListChanged() {
-    model.saveData(this.recordList);
+    recordListModel.saveData(this.recordList);
   }
 }
 </script>
